@@ -1,0 +1,19 @@
+{
+    "theme_color": "#f69435",
+    "background_color": "#f69435",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/login",
+    "app_name": "Architect Dash",
+    "name": "Architect Dash",
+    "short_name": "Architect Dash",
+    "description": "app demo",
+    "icons": [
+        {
+            "src": "icons/dashiconDes.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ]
+}

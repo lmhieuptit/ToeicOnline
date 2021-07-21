@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Sale login</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/css/common.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1 , maximum-scale=1.0, user-scalable=no" >
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Architect Dash">
+<link rel="apple-touch-icon" href="/image/dashiconDes.png">
+<meta name="google-signin-client_id" content="408354490837-o4elo7k09i4obh5fo9ik7qtj4m5a6i9q.apps.googleusercontent.com">
+<!-- <meta name="google-signin-client_id" content="447074108605-6lq35eapcsn26qp3uurgq18b9b2mekml.apps.googleusercontent.com"> -->
+<meta name="google-signin-cookiepolicy" content="single_host_origin">
+<meta name="google-signin-scope" content="profile email">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous"></link>
+
+<script src="https://unpkg.com/core-js-bundle@3.0.1/minified.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/salelogin.css" />
+
+<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
+<script src="/js/salelogin.js"></script>
+<script src="/js/app-starter-sale.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<link rel="icon" type="image/x-icon" href="/image/dashicon.png">
+</head>
+<body>
+	<div class="advertising-banner">
+		<img id="img_background" src="/image/5718.png" />
+		<div id="view" class="login">
+			<div class="header-title">
+				<img class="img_logo" src="/image/logo.png" />
+			</div>
+			<div class="login_content">
+				<div class="text-warning"
+					style="display: none; text-align: center; margin-bottom: 15px"
+					id="loginError"></div>					
+					<div style="    display: flex;
+					justify-content: center;" class="g-signin2" onclick="ClickLogin()" data-onsuccess="onSignIn"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

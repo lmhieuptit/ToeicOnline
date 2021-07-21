@@ -1,0 +1,5 @@
+/target/
+
+# front end deployment
+/src/main/resources/apps/client
+/src/main/resources/apps/sales

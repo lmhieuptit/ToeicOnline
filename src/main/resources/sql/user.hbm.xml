@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="UserCustomList">
+select
+	u.emplid,
+	u.account,
+	u.email_addr,
+	u.sex,
+	u.name_display,
+	u.job_indicator,
+	d.descr,
+	r.code_role
+from
+	tbl_employee u
+inner join tbl_department d on
+	u.deptid = d.deptid
+inner join tbl_user_roles
+    r on u.email_addr = r.email
+where 
+   u.email_addr = :mail
+    </sql-query>  
+</hibernate-mapping>

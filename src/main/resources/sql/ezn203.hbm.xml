@@ -1,0 +1,130 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <sql-query name="ezn203GetTotalLikeCmt">
+        select
+            r.reaction_id,
+            rm.reaction_name,
+            r.comment_id ,
+            r.user_id
+        from
+            reaction r
+        inner join reaction_master rm on
+            r.reaction_master_id = rm.reaction_master_id
+        where
+        r.category = 1
+        and r.news_id in (:newsIds)
+        and r.delete_flag = 0
+    </sql-query>
+    
+    <sql-query name="ezn203GetComments">
+		select
+			c.comment_id,
+			c.news_id,
+			c.content,
+			c.parent_comment_id,
+			u.account,
+			u.emplid as user_id,
+			c.create_date
+		from
+			comment c
+		inner join news n on
+			c.news_id = n.news_id
+		inner join tbl_employee u on
+			u.emplid = c.user_id
+		where
+			c.news_id in (:newsIds)
+			and c.delete_flag = 0
+			and n.delete_flag = 0
+    </sql-query>
+
+    <sql-query name="ezn203GetHashtags">
+		select
+			nh.news_id,
+			h.hashtag_id,
+			h.hashtag_name
+		from
+			news_hashtag nh
+		inner join hashtag h on
+			nh.hashtag_id = h.hashtag_id
+		where
+			nh.news_id in (:newsIds)
+    </sql-query>
+
+    <sql-query name="ezn203GetVote">
+		select
+			v.vote_id,
+			v.question,
+			vo.vote_option_id,
+			vo.option_answer
+			vo.vote_user_id
+		from
+			vote v
+		inner join vote_option vo on
+			vo.vote_id = v.vote_id
+		where
+			v.vote_id in (:voteIds)
+		order by
+			v.vote_id asc
+    </sql-query>
+
+    <sql-query name="ezn203GetTotalLikeNews">
+		select
+			r.reaction_id,
+			rm.reaction_name,
+			r.news_id,
+			r.user_id
+		from
+			reaction r
+		inner join reaction_master rm on
+			r.reaction_master_id = rm.reaction_master_id
+			and r.delete_flag = 0
+		where
+			r.category = 0
+			and r.news_id in (:newsIds)
+    </sql-query>
+
+    <sql-query name="ezn203GetNews">
+		select
+			n.news_id,
+			n.total_views,
+			n.title,
+			n.content,
+			n.thumbnail_url,
+			n.create_user,
+			n.create_date,
+			n.total_views,
+			n.question,
+			DATE_FORMAT(n.vote_end_date,'%d/%m/%Y') as vote_end_date,
+			n.personal_id,
+			c.category_id,
+			c.category_name,
+			g.group_id,
+			g.group_name
+		from
+			news n
+		left join category c on
+			c.category_id = n.category_id
+		left join `group` g on
+		    n.group_id = g.group_id
+		    and g.privacy = 0
+		where
+			n.delete_flag = 0
+		order by n.create_date desc
+		limit  :offset, :limit
+    </sql-query>
+
+    <sql-query name="ezn203GetUserInfoByIds">
+		select
+			e.id,
+			e.emplid as user_id,
+			e.account,
+			e.name_display,
+			e.avatar_url
+		from
+			tbl_employee e
+		where
+			e.emplid in(:userIds)
+    </sql-query>
+</hibernate-mapping>

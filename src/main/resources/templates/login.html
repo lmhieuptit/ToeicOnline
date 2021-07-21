@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Architect Dash</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/css/common.css" />
+<link rel="stylesheet" href="/css/main.css" />
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous" />
+<link rel="preload" as="font" href="ttps://storage.googleapis.com/acoda-public/StdNW6.otf">
+<link rel="manifest" href="/manifest.json" crossorigin="use-credentials">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Architect Dash">
+<link rel="apple-touch-icon" href="/image/dashiconDes.png">
+<meta name="description" content="oha app">
+<meta name="theme-color" content="#2F3BA2" />
+
+<script src="https://unpkg.com/core-js-bundle@3.0.1/minified.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+
+<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-app.js"></script>
+<!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/7.22.1/firebase-auth.js"></script>
+<script src="/js/login.js"></script>
+<script src="/js/app-starter.js"></script>
+<link rel="icon" type="image/x-icon" href="/image/dashicon.png">
+</head>
+
+<body>
+    <div class="advertising-banner ">
+        <img id="img_background" src="https://storage.googleapis.com/acoda-public/5718.jpg" />
+        <div id="view" class="login">
+            <div class="header-title">
+                <img class="img_logo" src="/image/logo.png" />
+            </div>
+            <form id="login-form">
+                <fieldset>
+
+                    <div class="input_container">
+                        <svg class="img_style" xmlns="http://www.w3.org/2000/svg"
+                            width="19" height="14" viewBox="0 0 19 14">
+                            <g fill="none" fill-rule="evenodd"
+                                stroke="#979797" stroke-width="1.2">
+                                <rect width="17.8" height="12.8" x=".6"
+                                y=".6" rx="1" />
+                                <path
+                                d="M.905.793l8.043 5.34c.334.223.77.223 1.105.001L18.12.793h0" />
+                            </g>
+                        </svg>
+                        <input type="text" class="input_email" name="username"
+                            id="username" placeholder="メールアドレス" />
+                    </div>
+                    <div class="input_container">
+                        <svg class="img_style" xmlns="http://www.w3.org/2000/svg"
+                            width="20" height="21" viewBox="0 0 20 21">
+                            <g fill="#898989">
+                                <path
+                                d="M18.299 1.691c-2.256-2.255-5.925-2.255-8.18 0-.936.936-1.509 2.123-1.657 3.435-.127 1.116.077 2.253.576 3.25L.006 17.41l2.575 2.576 1.05-1.05 1.139 1.14 2.444-2.445-1.139-1.14.838-.838 1.14 1.14 2.444-2.445-1.139-1.14 2.256-2.255c.997.5 2.134.703 3.25.577 1.312-.15 2.5-.722 3.435-1.657 2.255-2.255 2.255-5.925 0-8.18zm-.832 7.349c-1.508 1.508-3.831 1.788-5.65.68l-.395-.24-3.728 3.728 1.14 1.139-.781.78-1.14-1.138-2.502 2.502 1.14 1.139-.781.78-1.14-1.138-1.049 1.049-.911-.912 8.84-8.84-.24-.395c-1.108-1.82-.827-4.143.68-5.65 1.797-1.797 4.72-1.797 6.517 0 1.797 1.796 1.797 4.72 0 6.516z" />
+                                <path
+                                d="M13.964 3.302c-.752.75-.752 1.973 0 2.725.375.375.869.563 1.362.563.494 0 .987-.188 1.363-.563.751-.752.751-1.974 0-2.725-.752-.752-1.974-.752-2.725 0zm1.893 1.893c-.293.292-.769.292-1.061 0-.293-.293-.293-.769 0-1.061.146-.147.338-.22.53-.22s.385.073.53.22c.293.292.293.768 0 1.06z" />
+                            </g>
+                        </svg>
+                        <input type="password" class="input_password" name="password"
+                            id="password" placeholder="パスワード" />
+                        <div id="loginError"></div>
+                        <button id="btn-login" class="Rectangle-Copy-3" type="submit">
+                            <span class="btn-text">サインイン</span>
+                        </button>
+                        <button class="Rectangle-Copy-4" id="direct-to-register">
+                            <span class="request__infomation_text">新規登録申請</span>
+                        </button>
+                        <div class="save_email">
+                            <input type="checkbox" class="save_checkbox"
+                                id="checkBoxSavePassword" /> <span class="save-email-text">アドレスを記憶</span>
+                        </div>
+                </fieldset>
+            </form>
+            <table class="table_style">
+                <tr>
+                    <!-- <th>
+                        <button id="addBtn" class="Rectangle-Copy btn shadow-none"
+                            style="display: none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                viewBox="0 0 40 40">
+                                            <g fill="none"
+                                    fill-rule="evenodd">
+                                                <rect width="40"
+                                    height="40" fill="#A1CBED" rx="20" />
+                                                <path stroke="#000"
+                                    stroke-width="1.5"
+                                    d="M15 11h10.303c.552 0 1 .448 1 1v16.754c0 .277-.224.5-.5.5-.137 0-.267-.055-.361-.154l-4.93-5.15c-.19-.2-.507-.206-.706-.015l-.016.015-4.929 5.15c-.19.2-.507.207-.707.016-.098-.095-.154-.225-.154-.362V12c0-.552.448-1 1-1z" />
+
+                                            </g>
+                                        </svg>
+                        </button>
+                    </th> -->
+                    <th class="reset-pasword-text" id="btn-forgot-pass"><a
+                        href="/reset-password">パスワードのリセット</a></th>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

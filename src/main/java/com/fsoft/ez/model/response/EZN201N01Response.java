@@ -1,0 +1,32 @@
+package com.fsoft.ez.model.response;
+
+import java.util.List;
+
+import lombok.Data;
+
+@Data
+public class EZN201N01Response {
+
+    private Long newsId;
+
+    private Long categoryId;
+
+    private String title;
+
+    private String content;
+
+    private String thumbnailFileName;
+    
+    private String thumbnailFilePath;
+    
+    private String fileContentJsonArr;
+
+    private List<String> hashtagList;
+
+    private int notificationFlag = 0;
+
+    private EZN201N02Response vote;
+
+    private int personalFlag = 0;
+
+}
